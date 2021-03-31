@@ -51,7 +51,6 @@ export const getStudentsByLanguage = (language) => {
   return students.filter((student) =>
     student.languages.some((lang) => lang === language)
   );
-  console.log(stuByLang);
 };
 /******** ADVANCED CHALLENGE ********/
 /******** Only do this if all other tests are passing ****/
@@ -61,3 +60,12 @@ export const getStudentsByLanguage = (language) => {
 // It should accept an array of strings as a parameter named `languages`
 // It should return an array of students who know ALL of the given languages
 // Ex: getStudentsByLanguages(["Javascript", "C#"])
+// export const getStudentsByLanguages = (languages) => {
+//     let studentWithLangs = []
+//     languages.forEach(language => {
+//         students.forEach(student => {
+
+//         })
+//     })   
+//     )
+// }
