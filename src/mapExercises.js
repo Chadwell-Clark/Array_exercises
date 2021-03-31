@@ -38,6 +38,6 @@ export const StudentList = () => {
       <h2>Cohort ${student.cohort}</h2>
     </div>`;
   });
-  console.log(HtmlString.join(""));
+  // console.log(HtmlString.join(""));
   return HtmlString.join(" ");
 };
