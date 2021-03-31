@@ -64,7 +64,6 @@ export const getStudentWithMostLangs = () => {
           largest.pop();
           largest.push(numLang)
       }
-    
   })
   return students.find(student => student.languages.length === largest[0]) 
     }
