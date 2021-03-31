@@ -7,7 +7,6 @@ const instructors = useInstructors();
 // It should accept one integer parameter named `cohort`
 // It should return an array of just the students who are in that cohort
 export const getStudentsInCohort = (cohort) => {
-
     let studentsInCohort = students.filter(student => student.cohort === cohort)
     return studentsInCohort
 }
@@ -36,7 +35,6 @@ export const getPolyglotStudents = (languageCount) => {
 // It should not accept any parameters
 // It should return an array of instructors that don't have any students
 export const getAvailableInstructors = () => {
-
     let availableInstructors = instructors.filter((instructor) => {
      return !students.find(student => {
         return instructor.id === student.instructorId
