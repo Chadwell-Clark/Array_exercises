@@ -1,5 +1,8 @@
 // There is no need to edit this file
-
+console.log("scratchpad is loaded")
+const useStudents = () => {
+    return [...students]
+}
 const students = [
   {
     id: 1,
@@ -171,23 +174,101 @@ const instructors = [
 // };
 
 // StudentList()
+//   ***  Advanced attempt 3486 Chad[well]   //
+// const getStudentsByLanguages = (languages) => {
+//     // console.log(languages)
+//     // let studentWithLangs = students.filter(student => {
+        
+//         console.log(students[0].languages.includes(languages.forEach((language=> language)) ))
+    
+       
+//     // }
+//     // return studentWithLangs
+//         // console.log(studentWithLangs)
+// }
+
+//   ***  Advanced attempt 3487 Chad[well]
+// const getStudentsByLanguages = (languages) => {
+//   let studentWithLangs =  students.filter((student) => {
+//     return languages.includes(student.languages.forEach(lang => {
+//         console.log(student.languages);
+//         console.log(lang);
+//         return student;
+//       })
+//     );
+//   });
+//   // console.log(studentWithLangs)
+//   return studentWithLangs;
+// };
+
+//   ***  Advanced attempt 3488 Chad[well]
+// const getStudentsByLanguages = (languages) => {
+//   let studentWithLangs = []
+//   students.map(student => {
+//       student.languages.forEach(lang => {
+//           if (languages.some(language => lang === language)){
+//               studentWithLangs.push(student)
+//               console.log(studentWithLangs)
+//           }
+//       })
+     
+
+//       }
+      
+//   )
+// //   students.filter((student) => {
+// //     return languages.includes(student.languages.forEach(lang => {
+// //         console.log(student.languages);
+// //         console.log(lang);
+// //         return student;
+// //       })
+// //     );
+// //   });
+//   console.log(studentWithLangs)
+// //   return studentWithLangs;
+// };
+
+//   ***  Advanced attempt 3489 Chad[well]
+const getStudentsByLanguages = (languages) => {
+    let studentsAll = useStudents();
+    let stuWithLang = []
+    studentsAll.forEach((student) => {
+    if (languages.every((lang) => student.languages.includes(lang))) {
+      console.log("every lang found in", student)
+      stuWithLang.push(student)
+    } else {
+      console.log("NOT every lang found in", student);
+      
+    }
+    })
+    return stuWithLang
+}
+
+//   ***  Advanced  via Chris Douglas
+// const getStudentsByLanguages = (languages) => {
+//   return students.filter((student) => {
+//     let isInArray = true;
+//     languages.forEach((lang) => {
+//       if (!student.languages.includes(lang)) isInArray = false;
+//     });
+//     return isInArray;
+//   });
+// };
+//   ***  Advanced filter via Bryson  modified
+// const getStudentsByLanguages = (languages) => {
+//     return students.filter(student => {
+//         if (languages.every(language => student.languages.includes(language))) {
+//             return student
+//         }
+//     })
+// }    
 
 // const getStudentsByLanguages = (languages) => {
-//     let studentWithLangs = students.filter(student =>
-//          student.languages.includes(languages.forEach(language=> language))
-//         )
-//         console.log(studentWithLangs)
-//     return studentWithLangs
+//     return students.filter(student => {
+//         return student.languages.includes(languages.every(language => (language))
+//      ) }) 
+     
 // }
-const getStudentsByLanguages = (languages) => {
-  return students.filter((student) => {
-    let isInArray = true;
-    languages.forEach((lang) => {
-      if (!student.languages.includes(lang)) isInArray = false;
-    });
-    return isInArray;
-  });
-};
 
 getStudentsByLanguages(["Javascript", "C#"]);
 console.log(getStudentsByLanguages(["Javascript", "C#"]));

@@ -60,14 +60,48 @@ export const getStudentsByLanguage = (language) => {
 // It should accept an array of strings as a parameter named `languages`
 // It should return an array of students who know ALL of the given languages
 // Ex: getStudentsByLanguages(["Javascript", "C#"])
-export const getStudentsByLanguages = (languages) => {
+//   ***  Chris's solution
+// export const getStudentsByLanguages = (languages) => {
+//     return students.filter(student => {
+//         let isInArray = true;
+//         languages.forEach(language => {
+//             if(!student.languages.includes(language))isInArray = false
+//         })
+//         return isInArray;
+//     })
+//     }   
 
-    return students.filter(student => {
-        let isInArray = true;
-        languages.forEach(language => {
-            if(!student.languages.includes(language))isInArray = false
-        })
-        return isInArray;
-    })
-    }   
+    //   ***  Bryson's solution
+//    export const getStudentsByLanguages = (languages) => {
+//       return students.filter((student) => {
+//         if (
+//           languages.every((language) => student.languages.includes(language))
+//         ) {
+//           return student;
+//         }
+//       });
+//     };  
     
+//   ***  Chad's Solution refactored from below  ***  //
+// export const getStudentsByLanguages = (languages) => { 
+//   return useStudents().filter((student) => {
+//     if (languages.every((lang) => student.languages.includes(lang))) {
+//       console.log("every lang found in", student);
+//       return student;
+//     }
+//   });
+// };
+//   ***  Solution prior to refactor  ***   //
+export const getStudentsByLanguages = (languages) => {
+  let studentsAll = useStudents();
+  let stuWithLang = [];
+  studentsAll.forEach((student) => {
+    if (languages.every((lang) => student.languages.includes(lang))) {
+      console.log("every lang found in", student);
+      stuWithLang.push(student);
+    } else {
+      console.log("NOT every lang found in", student);
+    }
+  });
+  return stuWithLang;
+};
